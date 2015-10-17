@@ -4,12 +4,14 @@ import time
 
 
 def main():
-    year, saturation, saturation_per_year = simulation()
+    number_of_trials = 1
+    for trial in range(number_of_trials):
+        year, saturation, saturation_per_year = simulation()
 
-    print "Years: " + str(year) + "000"
-    print "Crater Saturation: " + str(saturation)
-    print saturation_per_year
-
+        print "Years: " + str(year) + "000"
+        print "Crater Saturation: " + str(saturation)
+        plot = TimeDensityPlot(saturation_per_year, trial)
+        plot.show()
 
 def simulation():
     #Create some uniformly random locations
