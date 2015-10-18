@@ -11,18 +11,21 @@ class TimeDensityPlot:
 
         # t = np.arrange(0, len(craters_pear_year)*1000, 1000)
         plt.plot(data, 'bo')
-        plt.xlabel('Thousands of Years', fontsize=20)
-        plt.ylabel('Number of Craters', fontsize=20)
-        plt.title(
-            'Crater Density Per Thousand Years in 500km Square Region | Trial: '+str(trial),
-            fontsize=25)
-        plt.axis([0, years+1, 0, 120])
-        plt.text(years-5, 10,
-            "Saturation Density is " + str(saturation) + " after " + str(years) + " years",
-            verticalalignment='bottom',
-            horizontalalignment='right',
-            fontsize=15)
+        # plt.xlabel('Thousands of Years', fontsize=20)
+        # plt.ylabel('Number of Craters', fontsize=20)
+        # plt.title(
+        #     'Crater Density Per Thousand Years in 500km Square Region | Trial: '+str(trial),
+        #     fontsize=25)
+        # plt.axis([0, years+1, 0, 120])
+        # plt.text(years-5, 10,
+        #     "Saturation Density is " + str(saturation) + " after " + str(years) + " years",
+        #     verticalalignment='bottom',
+        #     horizontalalignment='right',
+        #     fontsize=15)
 
     def show(self):
         plt.show()
+
+    def close(self):
+        plt.close()
 

@@ -1,17 +1,30 @@
+import sys
 from utils import *
 from simulated_objects import *
-import time
+from Tkinter import Tk, Canvas, Frame, BOTH
 
+def main(argv):
 
-def main():
-    number_of_trials = 1
-    for trial in range(number_of_trials):
-        year, saturation, saturation_per_year = simulation()
+    if len(argv) == 1:
+        number_of_trials = 1
+        for trial in range(number_of_trials):
+            year, saturation, saturation_per_year, _ = simulation()
 
+            print "Years: " + str(year) + "000"
+            print "Crater Saturation: " + str(saturation)
+            plot = TimeDensityPlot(saturation_per_year, trial)
+            plot.show()
+            plot.close()
+
+    else:
+        year, saturation, _, surface = simulation()
         print "Years: " + str(year) + "000"
         print "Crater Saturation: " + str(saturation)
-        plot = TimeDensityPlot(saturation_per_year, trial)
-        plot.show()
+        tkinter = CraterViz(surface)
+        tkinter.mainloop()
+
+
+    # tkinter.mainloop()
 
 def simulation():
     #Create some uniformly random locations
@@ -40,10 +53,9 @@ def simulation():
 
         saturation_per_year[year] = new_saturation
 
-    return (year, new_saturation, saturation_per_year)
-
+    return (year, new_saturation, saturation_per_year, surface)
 
 
 # Run Main function
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1:])

@@ -3,6 +3,7 @@ class PlanetarySurface:
     """ Planetary Surface of 500km x 500km """
     def __init__(self):
         self.craters = {}
+        self.total_craters = {}
 
 
     #Removes crater from surface
@@ -39,6 +40,7 @@ class PlanetarySurface:
 
         #Add new crater to dictionary
         self.craters[crater] = crater.get_location()
+        self.total_craters[crater] = crater.get_location()
 
 
     #Gives a list of all craters and locations
@@ -49,3 +51,7 @@ class PlanetarySurface:
     #Get Number of craters on surface
     def crater_density(self):
         return len(self.craters)
+
+
+    def get_all_craters(self):
+        return self.total_craters
