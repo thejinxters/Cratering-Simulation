@@ -24,6 +24,7 @@ class PlanetarySurface:
         return obliterated_craters
 
 
+    #Calculate Distance between crater centers
     def _get_distance(self, crater1, crater2):
         x1, y1 = crater1.get_location()
         x2, y2 = crater2.get_location()
@@ -53,5 +54,6 @@ class PlanetarySurface:
         return len(self.craters)
 
 
+    #Gets all craters
     def get_all_craters(self):
         return self.total_craters
